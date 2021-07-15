@@ -14,14 +14,14 @@ export default class HashRouter {
         if (str && str[0] === "#")
             str = str.slice(1)
 
-        if (str && str[0] !== "/") {
+        if (str && str[0] !== "/" && str[0] !== "*") {
             str = "/" + str
         }
         return typeof str === "string" ? str || '/' : str;
     };
 
     go(uri) {
-        this.window.location.hash = "#" + uri
+        this.window.location.hash = "#" + HashRouter.urlify(uri);
     }
 
     get() {
@@ -64,7 +64,7 @@ export default class HashRouter {
     }
 
     addRoute(path: string, callable: Function) {
-        this.router.addRoute(path, callable);
+        this.router.addRoute(HashRouter.urlify(path), callable);
     }
 
     started: Promise<void> = null;

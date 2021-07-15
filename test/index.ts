@@ -26,6 +26,7 @@ test("RemoveHash", function (assert) {
   assert.equal(HashRouter.urlify(null), null);
   assert.equal(HashRouter.urlify("abc"), "/abc");
   assert.equal(HashRouter.urlify("/abc"), "/abc");
+  assert.equal(HashRouter.urlify("*"), "*");
   assert.equal(HashRouter.urlify("#abc"), "/abc");
   assert.end()
 })
@@ -91,7 +92,7 @@ test("HashRouter broadcasts deltas in routes", async function (assert) {
 test("HashRouter deals with no hash in previous route", async function (assert) {
   const document = DocumentShim()
   const router = new HashRouter({
-    '/bar': (hash, opts) => {
+    bar: (hash, opts) => {
       assert.equal(hash, "/bar")
       assert.deepEqual(opts, {
         params: {},

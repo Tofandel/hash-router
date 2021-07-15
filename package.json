@@ -1,6 +1,6 @@
 {
   "name": "@tofandel/hash-router",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "A frontend router for the hash change event",
   "keywords": [
     "hash",
@@ -35,7 +35,7 @@
   "scripts": {
     "build": "tsc --build",
     "clean": "tsc --build --clean",
-    "prepublishOnly": "npm run clean && npm run build",
+    "prepublishOnly": "npm run clean && npm run test && npm run build",
     "test": "ts-node node_modules/tape/bin/tape test/index.ts | tap-spec",
     "coverage": "nyc npm run test"
   }
