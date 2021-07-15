@@ -1,5 +1,10 @@
 # @tofandel/hash-router
 
+[![Build](https://github.com/Tofandel/hash-router/actions/workflows/test.yml/badge.svg)](https://github.com/Tofandel/hash-router/actions)
+![coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg?style=flat)
+[![npm version](https://badge.fury.io/js/@tofandel/hash-router.svg)](https://www.npmjs.com/package/@tofandel/hash-router)
+[![dependencies](https://status.david-dm.org/gh/tofandel/hash-router.svg)](https://david-dm.org/tofandel/hash-router)
+
 A frontend router for the hash change event
 
 ## Example
