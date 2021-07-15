@@ -17,6 +17,8 @@ const router = new HashRouter({
   '/login': showLoginDialog,
   '*': fallbackRoute
 })
+router.addRoute('/another', anotherRouteCb);
+
 router.on("routed", function (hash, event) {
   console.log("Route has changed!", hash, event)
 })
@@ -26,6 +28,7 @@ router.on("not-found", function (hash, event) {
 
 router.started.then(() => {
   console.log('Router is ready');
+  router.go('/login');
 })
 ```
 
