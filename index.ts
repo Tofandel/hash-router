@@ -43,19 +43,21 @@ export default class HashRouter {
         newURL = HashRouter.urlify(newURL);
         oldURL = HashRouter.urlify(oldURL);
 
-        const route = this.router.match(newURL)
-        if (route) {
-            route.fn(newURL, {
-                params: route.params,
-                splats: route.splats,
-                route: route.route,
-                newURL,
-                oldURL
+        if (newURL !== oldURL) {
+            const route = this.router.match(newURL)
+            if (route) {
+                route.fn(newURL, {
+                    params: route.params,
+                    splats: route.splats,
+                    route: route.route,
+                    newURL,
+                    oldURL
+                });
+            }
+            this.emitter.emit(route ? "routed" : "not-found", {
+                newURL, oldURL, route
             });
         }
-        this.emitter.emit(route ? "routed" : "not-found", {
-            newURL, oldURL, route
-        });
     }
 
     start() {
